@@ -1,0 +1,13 @@
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+ExecStart=/root/systemd/frpc/frpc -c /root/systemd/frpc/frpc.ini
+Restart=on-failure
+RestartSec=5s
+Type=simple
+
+[Unit]
+After=network.target
+Description=Frp Client Service
+Documentation=https://gofrp.org/docs/

@@ -1,0 +1,14 @@
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+EnvironmentFile=/root/systemd/sunny-frp/environment
+ExecStart=/root/systemd/sunny-frp/sunny $ENVIRONMENT
+Restart=always
+RestartSec=10s
+Type=simple
+
+[Unit]
+After=network.target
+Description=ngrok.cc frp client daemon
+Documentation=http://ngrok.cc/_book/start/frp_linux.html

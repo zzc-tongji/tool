@@ -1,0 +1,13 @@
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+ExecStart=/root/systemd/frps/frps -c /root/systemd/frps/frps.ini
+Restart=on-failure
+RestartSec=5s
+Type=simple
+
+[Unit]
+After=network.target
+Description=Frp Server Service
+Documentation=https://gofrp.org/docs/

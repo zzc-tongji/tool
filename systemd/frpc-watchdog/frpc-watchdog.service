@@ -1,0 +1,12 @@
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+ExecStart=/root/systemd/frpc-watchdog/frpc-watchdog.sh
+Restart=always
+RestartSec=5s
+Type=simple
+
+[Unit]
+After=network.target frpc-cn.service frpc-us.service
+Description=Frp Client Service Watchdog

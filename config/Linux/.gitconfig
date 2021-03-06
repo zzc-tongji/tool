@@ -1,0 +1,26 @@
+[core]
+	autocrlf = false
+	editor = vim
+	eol = lf
+  filemode = false
+  safecrlf = true
+  sshCommand = ssh -i ~/.ssh/github -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o LogLevel=ERROR
+
+[credential]
+	helper = store
+
+[color]
+	ui = auto
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+
+[merge]
+	conflictstyle = diff3
+
+[user]
+  email = 20331014+zzc-tongji@users.noreply.github.com
+	name = Zhicheng Zhang
