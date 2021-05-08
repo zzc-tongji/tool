@@ -9,5 +9,6 @@ set guifont=Menlo:h16
 set nobackup
 set nomore
 set noswapfile
+set nu
 set paste
 set textwidth=0

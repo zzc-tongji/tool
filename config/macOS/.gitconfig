@@ -2,9 +2,9 @@
 	autocrlf = false
 	editor = vim
 	eol = lf
-  filemode = false
-  safecrlf = true
-  sshCommand = ssh -i ~/.ssh/github -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o LogLevel=ERROR
+	filemode = false
+	safecrlf = true
+	sshCommand = ssh -i ~/.ssh/github -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o LogLevel=ERROR
 
 [credential]
 	helper = store
