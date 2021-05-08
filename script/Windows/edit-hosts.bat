@@ -7,21 +7,21 @@ REM  --> Check for permissions
 
 REM --> If error flag set, we do not have admin.
 if '%errorlevel%' NEQ '0' (
-    echo Requesting administrative privileges...
-    goto UACPrompt
+  echo Requesting administrative privileges...
+  goto UACPrompt
 ) else ( goto gotAdmin )
 
 :UACPrompt
-    echo Set UAC = CreateObject^("Shell.Application"^) > "%temp%\getadmin.vbs"
-    echo UAC.ShellExecute "%~s0", "", "", "runas", 1 >> "%temp%\getadmin.vbs"
+  echo Set UAC = CreateObject^("Shell.Application"^) > "%temp%\getadmin.vbs"
+  echo UAC.ShellExecute "%~s0", "", "", "runas", 1 >> "%temp%\getadmin.vbs"
 
-    "%temp%\getadmin.vbs"
-    exit /B
+  "%temp%\getadmin.vbs"
+  exit /B
 
 :gotAdmin
-    if exist "%temp%\getadmin.vbs" ( del "%temp%\getadmin.vbs" )
-    pushd "%CD%"
-    CD /D "%~dp0"
+  if exist "%temp%\getadmin.vbs" ( del "%temp%\getadmin.vbs" )
+  pushd "%CD%"
+  CD /D "%~dp0"
 :--------------------------------------
 
 NOTEPAD C:\Windows\System32\drivers\etc\hosts
