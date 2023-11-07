@@ -1,0 +1,10 @@
+version: '3.3'
+services:
+  teddysun-v2ray:
+    container_name: teddysun-v2ray
+    image: teddysun/v2ray
+    network_mode: host
+    restart: always
+    volumes:
+      - './mount/config.json:/etc/v2ray/config.json:ro'
+      - './mount/log/:/log/'

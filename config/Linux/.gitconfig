@@ -1,0 +1,24 @@
+[core]
+  autocrlf = false
+  editor = vim
+  eol = lf
+  filemode = false
+  safecrlf = true
+
+[color]
+  ui = auto
+
+[filter "lfs"]
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
+
+[init]
+  defaultBranch = main
+
+[merge]
+  conflictstyle = diff3
+
+[safe]
+  directory = *
