@@ -104,8 +104,12 @@ source $ZSH/oh-my-zsh.sh
 # appended by owner
 #
 
+umask 027
 export PATH=$HOME/tool/bin/Linux/amd64:$HOME/tool/script/Linux:$PATH
+alias la="ls -ahl --color=auto"
+alias ls="ls -hl --color=auto"
 
 #
 # appended by others
 #
+
