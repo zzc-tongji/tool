@@ -39,8 +39,10 @@ else
 fi
 echo
 #
-echo "Public IPv4 : "`curl --silent https://ifconfig.me/`
-WARP="`curl --silent --proxy socks5://127.0.0.1:40000/ https://ifconfig.me/`"
+IP_QUERY_URL="https://ifconfig.me/"
+echo "Public IPv4 : "`curl --silent $IP_QUERY_URL`
+WARP="`curl --silent --proxy socks5://127.0.0.1:40000/ $IP_QUERY_URL`"
 if [ "$WARP" != "" ]; then
   echo "  WARP IPv4 : $WARP"
 fi
+echo

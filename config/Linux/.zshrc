@@ -105,9 +105,10 @@ source $ZSH/oh-my-zsh.sh
 #
 
 umask 027
-export PATH=$HOME/tool/bin/Linux/amd64:$HOME/tool/script/Linux:$PATH
+export PATH=$HOME/bin:$HOME/tool/bin/Linux/amd64:$HOME/tool/script/Linux:$PATH
 alias la="ls -ahl --color=auto"
 alias ls="ls -hl --color=auto"
+PROMPT="$USER@$HOST ${PROMPT}"
 
 #
 # appended by others
