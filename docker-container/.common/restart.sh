@@ -7,3 +7,7 @@ cd $SCRIPT_PATH
 
 # restart
 sudo docker compose restart
+
+# comfirm whether started or not
+sleep 5
+sudo docker compose logs --tail 20

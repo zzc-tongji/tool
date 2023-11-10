@@ -5,8 +5,8 @@ set -x
 SCRIPT_PATH=`cd "$(dirname "$0")"; pwd -P`
 cd $SCRIPT_PATH
 
-# delete
-sudo docker compose down
+# down
+./down.sh
 
 # create
 sudo docker compose up --detach
