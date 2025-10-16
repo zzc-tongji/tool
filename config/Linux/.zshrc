@@ -107,10 +107,21 @@ source $ZSH/oh-my-zsh.sh
 # appended by owner
 #
 
+# path
 umask 027
-export PATH=$HOME/bin:$HOME/tool/bin/Linux/amd64:$HOME/tool/script/Linux:$PATH
+ARCH="amd64"
+case "$(arch)" in
+  "aarch64")
+    ARCH="arm64"
+    ;;
+esac
+export PATH="$HOME/bin:$HOME/tool/bin/Linux/$ARCH:$HOME/tool/script/Linux:$PATH"
+
+# alias
 alias la="ls -ahl --color=auto"
 alias ls="ls -hl --color=auto"
+
+# prompt
 PROMPT="$USER@$HOST ${PROMPT}"
 
 #
