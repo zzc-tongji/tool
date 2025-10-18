@@ -1,3 +1,9 @@
+# If not running interactively, don't do anything
+case $- in
+  *i*) ;;
+    *) return;;
+esac
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
@@ -107,50 +113,15 @@ source $ZSH/oh-my-zsh.sh
 # appended by owner
 #
 
-# path
-umask 027
-ARCH="amd64"
-case "$(arch)" in
-  "aarch64")
-    ARCH="arm64"
-    ;;
-esac
-export PATH="$HOME/bin:$HOME/tool/bin/Linux/$ARCH:$HOME/tool/script/Linux:$PATH"
-
 # alias
 alias la="ls -ahl --color=auto"
 alias ls="ls -hl --color=auto"
 
 # prompt
 PROMPT="$USER@$HOST ${PROMPT}"
+uname -a
 
 #
 # appended by others
 #
-
-# nvm
-export NVM_DIR="$HOME/.config/nvm"
-if [ -d "$NVM_DIR" ]; then
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-fi
-
-# conda
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-export CONDA_DIR="$HOME/miniconda3"
-if [ -d "$CONDA_DIR" ]; then
-  __conda_setup=`"$CONDA_DIR/bin/conda" 'shell.zsh' 'hook' 2> /dev/null`
-  if [ $? -eq 0 ]; then
-      eval "$__conda_setup"
-  else
-      if [ -f "$CONDA_DIR/etc/profile.d/conda.sh" ]; then
-          . "$CONDA_DIR/etc/profile.d/conda.sh"
-      else
-          export PATH="$CONDA_DIR/bin:$PATH"
-      fi
-  fi
-  unset __conda_setup
-fi
-# <<< conda initialize <<<
 

@@ -1,7 +1,6 @@
-# if running zsh
-if [ -n "$ZSH_VERSION" ]; then
-    # include .zshrc if it exists
-    if [ -f "$HOME/.zshrc" ]; then
-        . "$HOME/.zshrc"
-    fi
+# ~/.zprofile: executed by the command interpreter "zsh" for login shells.
+
+# by default, "zsh" will NOT read "~/.profile", call it here
+if [ -f "$HOME/.profile" ]; then
+  . "$HOME/.profile"
 fi
