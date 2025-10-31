@@ -42,7 +42,7 @@ fi
 TOOL_REPO="$HOME/tool"
 if [ -d "$TOOL_REPO" ]; then
   ARCH="amd64"
-  case "$(arch)" in
+  case "$(uname -m)" in
     "aarch64")
       ARCH="arm64"
       ;;
