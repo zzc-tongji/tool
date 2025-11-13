@@ -1,0 +1,14 @@
+version: '3.3'
+services:
+  alist:
+    container_name: alist
+    image: 'xhofe/alist:latest'
+    environment:
+      - PUID=0 # update with current user id
+      - PGID=0 # update with current group id
+      - UMASK=027
+    ports:
+      - '5244:5244'
+    restart: always
+    volumes:
+      - './mount/data:/opt/alist/data'

@@ -1,0 +1,11 @@
+version: '3.3'
+services:
+  v2ray:
+    container_name: v2ray
+    image: teddysun/v2ray
+    network_mode: host
+    restart: always
+    user: '1000:1000' # update with current user id
+    volumes:
+      - './mount/config.json:/etc/v2ray/config.json:ro'
+      - './mount/log/:/log/'

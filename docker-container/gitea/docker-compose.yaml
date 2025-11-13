@@ -1,0 +1,15 @@
+version: "3"
+services:
+  gitea:
+    container_name: gitea
+    environment:
+      - USER_UID=1000  # update with current user id
+      - USER_GID=1000  # update with current group id
+    image: gitea/gitea:latest
+    ports:
+      - "8085:3000"
+      - "8086:22"
+    volumes:
+      - ./mount/Gitea/data:/data
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro

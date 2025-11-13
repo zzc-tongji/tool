@@ -1,0 +1,8 @@
+version: '3.3'
+services:
+  vlmcsd:
+    container_name: vlmcsd
+    image: mikolatero/vlmcsd
+    ports:
+      - '1688:1688'
+    restart: always
