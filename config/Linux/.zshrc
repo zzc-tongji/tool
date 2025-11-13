@@ -119,7 +119,7 @@ alias ls="ls -hl --color=auto"
 
 # prompt
 PROMPT="$USER@$HOST ${PROMPT}"
-uname -a
+# uname -a
 
 #
 # appended by others
