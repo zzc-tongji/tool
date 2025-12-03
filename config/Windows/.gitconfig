@@ -8,6 +8,9 @@
 [color]
   ui = auto
 
+[credential]
+  helper = stor
+
 [init]
   defaultBranch = main
 
