@@ -75,8 +75,14 @@ fi
 # conda
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-CONDA_DIR="$HOME/miniconda3"
-if [ -d "$CONDA_DIR" ]; then
+if [ -d "/opt/miniconda3" ]; then
+  CONDA_DIR="/opt/miniconda3"
+elif [ -d "$HOME/miniconda3" ]; then
+  CONDA_DIR="$HOME/miniconda3"
+else
+  CONDA_DIR=""
+fi
+if [ -n "$CONDA_DIR" ]; then
   __conda_setup=`"$CONDA_DIR/bin/conda" 'shell.zsh' 'hook' 2> /dev/null`
   if [ $? -eq 0 ]; then
     eval "$__conda_setup"
