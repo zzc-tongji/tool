@@ -75,10 +75,11 @@ fi
 # conda
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-if [ -d "/opt/miniconda3" ]; then
-  CONDA_DIR="/opt/miniconda3"
-elif [ -d "$HOME/miniconda3" ]; then
+if [ -d "$HOME/miniconda3" ]; then
   CONDA_DIR="$HOME/miniconda3"
+elif [ -d "/opt/miniconda3" ]; then
+  CONDA_DIR="/opt/miniconda3"
+  echo 'root-managed "conda" and "python" command'
 else
   CONDA_DIR=""
 fi
