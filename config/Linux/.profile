@@ -74,6 +74,7 @@ if [ -n "$TOOL_REPO" ]; then
   }
   symlink "$HOME/.gitconfig" "$TOOL_REPO/config/Linux/.gitconfig"
   symlink "$HOME/.profile" "$TOOL_REPO/config/Linux/.profile"
+  symlink "$HOME/.vimrc" "$TOOL_REPO/config/Linux/.vimrc"
   symlink "$HOME/.zprofile" "$TOOL_REPO/config/Linux/.zprofile"
   symlink "$HOME/.zshrc" "$TOOL_REPO/config/Linux/.zshrc"
 else
