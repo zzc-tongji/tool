@@ -77,6 +77,7 @@ if [ -n "$TOOL_REPO" ]; then
   symlink "$HOME/.vimrc" "$TOOL_REPO/config/Linux/.vimrc"
   symlink "$HOME/.zprofile" "$TOOL_REPO/config/Linux/.zprofile"
   symlink "$HOME/.zshrc" "$TOOL_REPO/config/Linux/.zshrc"
+  symlink "$HOME/tool" "$TOOL_REPO"
 else
   unset TOOL_REPO
 fi
