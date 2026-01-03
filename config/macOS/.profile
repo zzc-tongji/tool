@@ -39,8 +39,16 @@ fi
 #
 
 # set path so it includes bin/script from repo "https://github.com/zzc-tongji/tool" if it exists
-TOOL_REPO="$HOME/tool"
-if [ -d "$TOOL_REPO" ]; then
+
+if [ -d "$HOME/tool" ]; then
+  TOOL_REPO="$HOME/tool"
+elif [ -d "/opt/tool" ]; then
+  TOOL_REPO="/opt/tool"
+  echo 'root-managed repo "https://github.com/zzc-tongji/tool" located at "/opt/tool"'
+else
+  TOOL_REPO=""
+fi
+if [ -n "$TOOL_REPO" ]; then
   ARCH="amd64"
   case "$(uname -m)" in
     "aarch64")
@@ -49,9 +57,9 @@ if [ -d "$TOOL_REPO" ]; then
     "arm64")
       ARCH="arm64"
       ;;
-    "x86_64")
+    *)
       ARCH="amd64"
-    ;;
+      ;;
   esac
   PATH="$TOOL_REPO/bin/macOS/$ARCH:$TOOL_REPO/script/macOS:$PATH"
   unset ARCH
@@ -75,8 +83,15 @@ fi
 # conda
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-CONDA_DIR="$HOME/miniconda3"
-if [ -d "$CONDA_DIR" ]; then
+if [ -d "$HOME/miniconda3" ]; then
+  CONDA_DIR="$HOME/miniconda3"
+elif [ -d "/opt/miniconda3" ]; then
+  CONDA_DIR="/opt/miniconda3"
+  echo 'root-managed command "conda" and "python" located at "/opt/miniconda3"'
+else
+  CONDA_DIR=""
+fi
+if [ -n "$CONDA_DIR" ]; then
   __conda_setup=`"$CONDA_DIR/bin/conda" 'shell.zsh' 'hook' 2> /dev/null`
   if [ $? -eq 0 ]; then
     eval "$__conda_setup"
