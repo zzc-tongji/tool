@@ -39,7 +39,7 @@ fi
 #
 
 # set path so it includes bin/script from repo "https://github.com/zzc-tongji/tool" if it exists
-if [ -d "$HOME/tool" ]; then
+if [ -d "$HOME/tool" ] && ! [ -L "$HOME/tool" ]; then
   TOOL_REPO="$HOME/tool"
 elif [ -d "/opt/tool" ]; then
   TOOL_REPO="/opt/tool"
