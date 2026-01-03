@@ -39,7 +39,6 @@ fi
 #
 
 # set path so it includes bin/script from repo "https://github.com/zzc-tongji/tool" if it exists
-
 if [ -d "$HOME/tool" ]; then
   TOOL_REPO="$HOME/tool"
 elif [ -d "/opt/tool" ]; then
@@ -61,8 +60,22 @@ if [ -n "$TOOL_REPO" ]; then
       ARCH="amd64"
       ;;
   esac
+  # path
   PATH="$TOOL_REPO/bin/macOS/$ARCH:$TOOL_REPO/script/macOS:$PATH"
   unset ARCH
+  # symlink if invalid
+  symlink() {
+    local link="$1"
+    local target="$2"
+    if ! [ -e "$link" ]; then
+      [ -L "$link" ] && rm -f "$link"
+      ln -s "$target" "$link"
+    fi
+  }
+  symlink "$HOME/.gitconfig" "$TOOL_REPO/config/Linux/.gitconfig"
+  symlink "$HOME/.profile" "$TOOL_REPO/config/Linux/.profile"
+  symlink "$HOME/.zprofile" "$TOOL_REPO/config/Linux/.zprofile"
+  symlink "$HOME/.zshrc" "$TOOL_REPO/config/Linux/.zshrc"
 else
   unset TOOL_REPO
 fi
