@@ -87,7 +87,15 @@ fi
 #
 
 # nvm
-NVM_DIR="$HOME/.config/nvm"
+if [ -d "$HOME/.config/nvm" ]; then
+  NVM_DIR="$HOME/.config/nvm"
+elif [ -d "$HOME/.nvm" ]; then
+  NVM_DIR="$HOME/.nvm"
+elif [ -d "/opt/nvm" ]; then
+  NVM_DIR="/opt/nvm"
+  echo 'root-managed command "nvm" and "node" located at "/opt/nvm", use "sudo -i" to modify'
+fi
+#
 if [ -d "$NVM_DIR" ]; then
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -102,10 +110,9 @@ if [ -d "$HOME/miniconda3" ]; then
   CONDA_DIR="$HOME/miniconda3"
 elif [ -d "/opt/miniconda3" ]; then
   CONDA_DIR="/opt/miniconda3"
-  echo 'root-managed command "conda" and "python" located at "/opt/miniconda3"'
-else
-  CONDA_DIR=""
+  echo 'root-managed command "conda" and "python" located at "/opt/miniconda3", use "sudo -i" to modify'
 fi
+#
 if [ -n "$CONDA_DIR" ]; then
   __conda_setup=`"$CONDA_DIR/bin/conda" 'shell.zsh' 'hook' 2> /dev/null`
   if [ $? -eq 0 ]; then
