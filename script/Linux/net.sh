@@ -4,20 +4,24 @@ SUDO="sudo"
 ([ $TERMUX_APP_PID ] || [ `whoami` = "root" ]) && SUDO=""
 #
 echo
-if command -v ifconfig >/dev/null 2>&1; then
-  ifconfig
+if command -v ip address show >/dev/null 2>&1; then
+  ip address show
 else
-  echo '(ifconfig: not installed, could be installed by `apt-get install net-tools`)'
+  echo '(ip: not installed, could be installed by `apt-get install iproute2`)'
   echo
 fi
 #
-ip route show
-echo
-#
-if command -v netstat >/dev/null 2>&1; then
-  $SUDO netstat -tunlp
+if command -v ip route show >/dev/null 2>&1; then
+  ip route show
 else
-  echo '(netstat: not installed, could be installed by `apt-get install net-tools`)'
+  echo '(ip: not installed, could be installed by `apt-get install iproute2`)'
+  echo
+fi
+#
+if command -v ss >/dev/null 2>&1; then
+  $SUDO ss -tunlp
+else
+  echo '(ss: not installed, could be installed by `apt-get install iproute2`)'
 fi
 echo
 #
