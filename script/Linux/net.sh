@@ -8,15 +8,15 @@ if command -v ip address show >/dev/null 2>&1; then
   ip address show
 else
   echo '(ip: not installed, could be installed by `apt-get install iproute2`)'
-  echo
 fi
+echo
 #
 if command -v ip route show >/dev/null 2>&1; then
   ip route show
 else
   echo '(ip: not installed, could be installed by `apt-get install iproute2`)'
-  echo
 fi
+echo
 #
 if command -v ss >/dev/null 2>&1; then
   $SUDO ss -tunlp
